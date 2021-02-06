@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Capture The Beast</title>
+        <meta name="description" content="bigfoot">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="./img/ico/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="./img/ico/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="./img/ico/favicon-16x16.png">
+        <link rel="manifest" href="./img/ico/site.webmanifest">
+    </head>
+    <body>
+        <div id="background">
+            <div class="vignete"></div>
+            <video id="video" autoplay loop muted poster="./img/background.jpg" src="./bigfoot-video.mov"></video>
+        </div>
+        <div class="col">
+            <h1>Capture The Beast</h1>
+            <p>Prove or deny their existence once and for all. Rent our drones, camera traps and other equipment.</p>
+            <a href="https://evorsion.com/">CHECK OUR STUFF<img src="./img/arrow.svg" alt="-->"></a>
+        </div>
+        <div class="corner top left">
+            <div class="rec"></div>
+        </div>
+        <div class="corner top right">
+            <a href="#" class="menu">MENU</a>
+        </div>
+        <div class="corner bottom left">
+            <p class="date" id="time"></p>
+        </div>
+        <div class="corner bottom right"></div>
+
+        <script>
+            var video = document.getElementById("video");
+
+           
+            const zeroPad = (num, places) => String(num).padStart(places, '0');
+            function RefreshTime(){
+                var currentdate = new Date(); 
+                var datetime = zeroPad(currentdate.getDate(),2) + "/"
+                    + zeroPad(currentdate.getMonth()+1, 2)  + "/" 
+                    + currentdate.getFullYear() + " <br> "  
+                    + zeroPad(currentdate.getHours(),2) + ":"  
+                    + zeroPad(currentdate.getMinutes(),2) + ":" 
+                    + zeroPad(currentdate.getSeconds(),2);
+                document.getElementById("time").innerHTML=datetime;
+            }
+            var keepGoodSize = function(){  
+                var w = window.innerWidth;
+                var h = window.innerHeight;
+                var ratio = w/h;
+                var videoRatio = 1761/1080;
+                if(ratio > videoRatio){
+                    video.style.width = "100%";
+                    video.style.height = "";
+                }
+                else{
+                    video.style.width = "";
+                    video.style.height = "100%";
+                }
+            }
+
+
+
+            RefreshTime();
+            setInterval(RefreshTime, 1000);
+
+            keepGoodSize();
+            window.addEventListener("resize", keepGoodSize);
+        </script>
+    </body>
+</html>

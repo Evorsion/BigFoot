@@ -1,0 +1,10 @@
+body{
+    margin:0;
+    background:url(./../img/stip.png) repeat-x;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#background,a{
+    height:100vh;
+}

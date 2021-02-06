@@ -1,0 +1,179 @@
+html, body{
+    position:relative;
+    margin:0;
+    height:100%;
+    overflow: hidden;
+    font-size: 24px;
+    color: #FFFFFF;
+}
+
+#background{
+    position: absolute;
+    width: 100vw;
+    height:100%;
+
+    background: url(./../img/background.jpg)
+                no-repeat center center fixed;
+    background-size:cover;
+    z-index: -150;
+}
+video{
+    position:fixed;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    z-index: -50;
+}
+.vignete{
+    position: absolute;
+    width: 100vw;
+    height:100%;
+    background: radial-gradient(68.89% 59.13% at 60.73% 48.14%, rgba(0, 0, 0, 0) 0%, #000000 100%)
+                no-repeat center center fixed;
+    z-index: 50;
+}
+.col{
+    position: absolute;
+    width:375px;
+    left: calc(5vh + 5%);
+    top:10%;
+}
+.col h1{
+    margin-bottom: 1em;
+    font-family: "Anton";
+    font-size: 4em;
+    line-height: 100px;
+
+    text-transform: uppercase;
+}
+.col p{
+    margin-bottom: 3em;
+    font-family: "Special Elite";
+    line-height: 24px;
+}
+.col a{
+    font-family: "Special Elite";
+    color:white;
+    transition: 300ms;
+    transition-property: color;
+}
+.col a img{
+    margin-left: 20px;
+}
+.col a:hover{
+    color:rgb(177, 177, 177);
+}
+
+.corner{
+    position:absolute;
+    width:100px;
+    height:100px;
+    padding: 3vh;
+    border-color: white;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+}
+.top{
+    top:5vh;
+    border-bottom:0px;
+}
+.bottom{
+    bottom:5vh;
+    border-top:0px;
+}
+.left{
+    left:5vh;
+    border-right:0px;
+}
+.right{
+    right:5vh;
+    border-left:0px;
+}
+
+.rec{
+    width:26px;
+    height:26px;
+    background: red;
+    border-radius: 50%;
+    display: flex;  
+    animation: blink 0.9s infinite;
+    animation-timing-function: ease;
+}
+
+@keyframes blink {
+    0% {background: rgba(255, 0, 0, 0);}
+    50% {background: rgba(255, 0, 0, 1);}
+    100% {background: rgba(255, 0, 0, 0);}
+}
+.rec::after{
+    content: "REC";
+    display: flex;
+    align-items: center;
+    margin-top: -1px;
+    margin-left:50px;
+    font-family:"Roboto Mono Thin";
+}
+.menu{
+    float: right;
+    font-family:"Roboto Mono Regular";
+    color:white;
+    text-decoration: none;
+}
+.date{
+    position: absolute;
+    bottom: 0;
+    font-family:"Roboto Mono Thin";
+}
+
+@font-face {
+    font-family: "Anton";
+    src: url(./../fonts/Anton-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Special Elite";
+    src: url(./../fonts/SpecialElite-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Roboto Mono Thin";
+    src: url(./../fonts/RobotoMono-Thin.ttf);
+}
+@font-face {
+    font-family: "Roboto Mono Regular";
+    src: url(./../fonts/RobotoMono-Regular.ttf);
+}
+
+
+
+@media only screen and (max-height: 800px) {
+    html, body{
+        font-size: 16px;
+    }
+    .col{
+        width:260px;
+    }
+    .col > h1{
+        margin-bottom: 0.25em;
+        line-height: 1em;
+    }
+    .col p, .col a{
+        margin-bottom: 0;
+    }
+}
+@media only screen and (max-width: 330px) {
+    html, body{
+        font-size: 12px;
+    }
+    .col{
+        width:200px;
+    }
+    .col > h1{
+        margin-bottom: 0.25em;
+        line-height: 1em;
+    }
+    .col p, .col a{
+        margin-bottom: 0;
+        line-height: 1em;
+    }
+}
