@@ -1,2 +1,1 @@
-# BigFoot
- Catch The Beast
+[See the website](http://bigfoot.evorsion.com/)
